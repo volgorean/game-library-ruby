@@ -38,11 +38,11 @@ class Game
   def Game.find(what)
     found_array = []
     @@games.each do |game|
-      if (game.name.include? what) || (game.genre.include? what) || (game.players.include? what)
+      if (game.name.downcase.include? what) || (game.genre.downcase.include? what) || (game.players.downcase.include? what)
         found_array << game
       end
       game.systems.each do |system|
-        if system.system.include? what
+        if system.system.downcase.include? what
           found_array << game
         end
       end
@@ -65,7 +65,7 @@ class Game
       reviews.each do |review|
         total_reviews += review.review.to_i
       end
-      "★" * (total_reviews/length) + "☆" * (5-total_reviews/length)
+      "☭" * (total_reviews/length) + "☆" * (5-total_reviews/length)
     end
   end
 

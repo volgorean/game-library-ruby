@@ -38,6 +38,7 @@ def main_menu
     puts "AWWW!!! We'll miss you!!!!"
   else
     puts "AGHSJDKLF! Invalid Entry!!!"
+    sleep(1)
     main_menu
   end
 end
@@ -150,7 +151,7 @@ end
 
 def find_menu
   puts 'Find what? '
-  what_to_find = gets.chomp
+  what_to_find = gets.downcase.chomp
   found_array = Game.find(what_to_find)
   system('clear')
   if found_array.length > 0
